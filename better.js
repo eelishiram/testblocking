@@ -1,9 +1,17 @@
 let formTabIndex = 0
 let phoneMask, mask, otpMask
-alert('works');
-document.addEventListener('DOMContentLoaded', () => {
+
+if (document.readyState !== 'loading') {
+    init();
+} else {
+    document.addEventListener('DOMContentLoaded', function () {
+        init();
+    });
+}
+
+function init() {
     var phone = document.getElementById('phone');
-    if(phone){
+    if (phone) {
         var phoneMaskOptions = {
             mask: '994 (00) 000-00-00',
             lazy: false,  // make placeholder always visible
@@ -14,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     var pin = document.getElementById('pin');
-    if(pin){
+    if (pin) {
         var pinMaskOptions = {
             mask: "*******",
             lazy: false,  // make placeholder always visible
@@ -28,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     var otp = document.getElementById('otp');
-    if(otp){
+    if (otp) {
         var otpMaskOptions = {
             mask: "000000",
             lazy: false,  // make placeholder always visible
@@ -43,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const link = document.getElementById("registration-link");
-    if(link){
+    if (link) {
         let src = link.getAttribute("href");
         src += "/az?redirection_url=" + encodeURIComponent(window.location.href);
         link.setAttribute("href", src);
@@ -58,12 +66,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-});
+}
 
 const handleKeydown = (e) => {
     var letterNumber = /^[0-9a-zA-Z]+$/;
-    if(!e.key.match(letterNumber)) {
-      e.preventDefault();
+    if (!e.key.match(letterNumber)) {
+        e.preventDefault();
     }
 };
 
