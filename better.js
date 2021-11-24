@@ -1,5 +1,6 @@
 let formTabIndex = 0
 let phoneMask, mask, otpMask
+alert('works');
 document.addEventListener('DOMContentLoaded', () => {
     var phone = document.getElementById('phone');
     if(phone){
